@@ -54,7 +54,7 @@ module RubyProf
         opts.separator ""
         opts.separator "Options:"
 
-        opts.on('-p printer', '--printer=printer', [:flat, :flat_with_line_numbers, :graph, :graph_html, :call_tree, :call_stack, :dot],
+        opts.on('-p printer', '--printer=printer', [:flat, :flat_with_line_numbers, :graph, :graph_html, :call_tree, :call_stack, :dot, :json],
                 'Select a printer:',
                 '  flat - Prints a flat profile as text (default).',
                 '  flat_with_line_numbers - same as flat, with line numbers.',
@@ -62,7 +62,8 @@ module RubyProf
                 '  graph_html - Prints a graph profile as html.',
                 '  call_tree - format for KCacheGrind',
                 '  call_stack - prints a HTML visualization of the call tree',
-                '  dot - Prints a graph profile as a dot file'
+                '  dot - Prints a graph profile as a dot file',
+                '  json - Prints JSON dump of Ruby call stack'
         ) do |printer|
 
 
@@ -81,6 +82,8 @@ module RubyProf
             options.printer = RubyProf::CallStackPrinter
           when :dot
             options.printer = RubyProf::DotPrinter
+          when :json
+            options.printer = RubyProf::JSONStackPrinter
           end
         end
 

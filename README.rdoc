@@ -268,6 +268,7 @@ Reports are created by printers.  Supported printers include:
 * RubyProf::GraphPrinter - Creates a call graph report in text format
 * RubyProf::GraphHtmlPrinter - Creates a call graph report in HTML (separate files per thread)
 * RubyProf::DotPrinter - Creates a call graph report in GraphViz's DOT format which can be converted to an image
+* RubyProf::JSONStackPrinter - Creates a JSON dump of the Ruby stack
 * RubyProf::CallTreePrinter - Creates a call tree report compatible with KCachegrind.
 * RubyProf::CallStackPrinter - Creates a HTML visualization of the Ruby stack
 * RubyProf::MultiPrinter - Uses the other printers to create several reports in one profiling run
