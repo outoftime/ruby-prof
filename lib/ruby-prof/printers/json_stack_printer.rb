@@ -46,7 +46,7 @@ module RubyProf
         local_data = { label: full_name, percentage: 0 }
         arr << local_data
       end
-      local_data[:percentage] += call_info.total_time / @total_time # eek
+      local_data[:percentage] += (call_info.total_time / @total_time) * 100 # eek
       # record children
       unless call_info.children.empty?
         children_arr = (local_data[:children] ||= [])
