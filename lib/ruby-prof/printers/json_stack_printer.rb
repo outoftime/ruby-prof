@@ -18,7 +18,7 @@ module RubyProf
 
     # Encode data from all threads and then print
     def print(output = STDOUT, options = {})
-      data = { label: '(root)', children: [], percentage: 100 }
+      data = { :label => '(root)', :children => [], :percentage => 100 }
       @total_time = @result.threads.inject(0) { |val, thread| val += thread.total_time }.to_f
       @result.threads.each do |thread|
         record_thread(thread, data[:children])
@@ -43,7 +43,7 @@ module RubyProf
       full_name = call_info.target.full_name
       local_data = arr.detect { |c| c[:label] == full_name }
       unless local_data
-        local_data = { label: full_name, percentage: 0 }
+        local_data = { :label => full_name, :percentage => 0 }
         arr << local_data
       end
       local_data[:percentage] += (call_info.total_time / @total_time) * 100 # eek
